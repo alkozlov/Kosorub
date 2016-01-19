@@ -67,12 +67,6 @@ namespace Assets.Scripts
         {
             switch (otherCollider.gameObject.tag)
             {
-                case "Soul":
-                    {
-                        GameManager.Instance.CollectSoul();
-                        Destroy(otherCollider.gameObject);
-                    } break;
-
                 case "Enemy":
                     {
                         GameManager.Instance.DamagePlayer(1);

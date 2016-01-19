@@ -4,7 +4,7 @@ namespace Assets.Scripts
 {
     public class Soul : MonoBehaviour
     {
-        public float Speed = 6.0f;
+        public float Speed = 2.0f;
 
         private Transform _target;
         private Rigidbody2D _rigidbody2D;
@@ -19,14 +19,14 @@ namespace Assets.Scripts
         // Use this for initialization
         private void Start()
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
+            GameObject target = GameObject.FindGameObjectWithTag("SoulBag");
+            if (target != null)
             {
-                this._target = player.transform;
+                this._target = target.transform;
             }
             else
             {
-                Debug.LogError("Player not found!");
+                Debug.LogError("Soul target not found!");
             }
         }
 
@@ -52,7 +52,7 @@ namespace Assets.Scripts
             var newRotation = Quaternion.LookRotation(direction, Vector3.forward);
             newRotation.x = 0.0f;
             newRotation.y = 0.0f;
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, newRotation, Time.deltaTime * 8);
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, newRotation, Time.deltaTime * 2);
             this._rigidbody2D.velocity = -direction * this.Speed;
         }
     }

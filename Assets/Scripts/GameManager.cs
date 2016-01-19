@@ -7,6 +7,7 @@ namespace Assets.Scripts
     {
         public static GameManager Instance;
         public Transform Player;
+        public Transform SoulBag;
         public Vector2 PlayerSpawn = new Vector2(-7, 0);
 
         private LevelManager _levelManager;
@@ -54,6 +55,7 @@ namespace Assets.Scripts
         {
             // Instantiate player on scene
             Transform instantiatedPlayer = Instantiate(this.Player, this.PlayerSpawn, Quaternion.identity) as Transform;
+            Instantiate(this.SoulBag);
             if (instantiatedPlayer != null)
             {
                 this._kosorub = instantiatedPlayer.GetComponent<Kosorub>();
